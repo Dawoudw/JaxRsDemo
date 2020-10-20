@@ -1,6 +1,6 @@
 <html>
 <head>
-<p>JAXRS TEST</p>
+<p>JAXRS TEST With Jenkins</p>
 </head>
 <body>
 	<h2 style="color:blue;">Jersey RESTful Web Application!</h2>
