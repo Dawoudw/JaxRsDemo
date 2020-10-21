@@ -18,11 +18,18 @@ pipeline {
                 bat "mvn install"
                 echo 'install Ended ............'
             }     
-        }        
+        }   
+        stage('Deploye')
+        {
+            steps{
+                bat 'Xcopy /E  "C:/WINDOWS/system32/config/systemprofile/.m2/repository/dev/wael/jaxRS/0.0.1-SNAPSHOT/jaxRS-0.0.1-SNAPSHOT.war"  "C:/Program Files/apache-tomcat-9.0.34/webapps"'
+                echo 'Deploy  ............'
+            }
+        }
         stage('Notify') {
             steps {
                 build "Email_Job"
-                echo 'install Ended ............'
+                echo 'Notify Ended ............'
             }     
         }
     }
