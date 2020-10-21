@@ -1,31 +1,24 @@
 pipeline {
     agent any
-
     stages {   
         stage('Clean') {
             steps {
-                bat "mvn clean -f JaxRsDemo"
+                bat "mvn clean"
                 echo 'Clean Ended ............'
             }
         }   
         stage('Test') {
             steps {
-                bat "mvn test -f JaxRsDemo"
+                bat "mvn test"
                 echo 'Test Ended ............'
             }
         }   
         stage('Install') {
             steps {
-                bat "mvn install -f JaxRsDemo"
+                bat "mvn install"
                 echo 'install Ended ............'
             }     
-        }     
-        stage('Deploy') {
-            steps {
-                bat 'Xcopy /E  "C:/WINDOWS/system32/config/systemprofile/.m2/repository/dev/wael/jaxRS/0.0.1-SNAPSHOT/jaxRS-0.0.1-SNAPSHOT.war"  "C:/Program Files/apache-tomcat-9.0.34/webapps"'
-                echo 'install Ended ............'
-            }     
-        }     
+        }        
         stage('Notify') {
             steps {
                 build "Email_Job"
